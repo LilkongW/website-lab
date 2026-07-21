@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { createPortal } from "react-dom"
-import Image from "next/image"
+import AppImage from "@/components/ui/AppImage"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 interface GalleryItem {
@@ -59,7 +59,7 @@ export default function GalleryClient({ items }: GalleryClientProps) {
           >
             <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br ${item.gradient ?? "from-gray-100 to-gray-200"}`}>
               {item.type === "image" && item.src ? (
-                <Image
+                <AppImage
                   src={item.src}
                   alt={item.alt ?? ""}
                   width={400}
@@ -117,7 +117,7 @@ export default function GalleryClient({ items }: GalleryClientProps) {
 
             <div className="relative flex items-center justify-center bg-gray-100">
               {items[current].type === "image" && items[current].src ? (
-                <Image
+                <AppImage
                   src={items[current].src!}
                   alt={items[current].alt ?? ""}
                   width={900}

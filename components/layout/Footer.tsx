@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
+import AppImage from "@/components/ui/AppImage"
 import { navLinks, siteConfig } from "@/constants"
 import { useLanguage } from "@/contexts/LanguageContext"
 
@@ -20,7 +20,7 @@ export default function Footer() {
 
       {/* ULA logo as decorative background */}
       <div className="pointer-events-none absolute left-6 top-1/2 -translate-y-1/2 select-none opacity-[0.15]">
-        <Image
+        <AppImage
           src="/images/logo_ula.png"
           alt=""
           width={300}
@@ -37,7 +37,7 @@ export default function Footer() {
           <div>
             <div className="mb-4 flex items-center gap-3">
               <div className="flex h-10 items-center justify-center rounded-xl bg-white px-2 shadow-sm">
-                <Image
+                <AppImage
                   src="/images/logo_laboratorio.png"
                   alt="Logo del Laboratorio"
                   width={66}

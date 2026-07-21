@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import AppImage from "@/components/ui/AppImage"
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import Card from "@/components/ui/Card"
 import PageHeader from "@/components/ui/PageHeader"
@@ -42,7 +42,7 @@ export default function EquipoPage() {
                     <div className={`absolute inset-1 rounded-full bg-gradient-to-br ${memberGradients[i]} transition-transform duration-500 group-hover:scale-105`} />
                     <div className="absolute inset-2 overflow-hidden rounded-full bg-white">
                       {member.photo ? (
-                        <Image src={member.photo} alt={member.name} width={80} height={80} className="h-full w-full object-cover" />
+                        <AppImage src={member.photo} alt={member.name} width={80} height={80} className="h-full w-full object-cover" />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center">
                           <span className="text-2xl font-bold text-primary/60">
