@@ -8,7 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext"
 interface GalleryItem {
   type: "image" | "placeholder"
   src?: string
-  alt: string
+  alt?: string
   title: string
   category: string
   gradient?: string
@@ -61,7 +61,7 @@ export default function GalleryClient({ items }: GalleryClientProps) {
               {item.type === "image" && item.src ? (
                 <Image
                   src={item.src}
-                  alt={item.alt}
+                  alt={item.alt ?? ""}
                   width={400}
                   height={300}
                   className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
@@ -119,7 +119,7 @@ export default function GalleryClient({ items }: GalleryClientProps) {
               {items[current].type === "image" && items[current].src ? (
                 <Image
                   src={items[current].src!}
-                  alt={items[current].alt}
+                  alt={items[current].alt ?? ""}
                   width={900}
                   height={675}
                   className="h-auto max-h-[70vh] w-auto max-w-full object-contain"
