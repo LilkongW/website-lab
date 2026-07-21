@@ -1,32 +1,36 @@
+"use client"
+
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import PageHeader from "@/components/ui/PageHeader"
-import { publications } from "@/constants"
+import SectionTitle from "@/components/ui/SectionTitle"
+import { publications, researchProjects } from "@/constants"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function PublicacionesPage() {
+  const { t, lang } = useLanguage()
   return (
     <>
       <PageHeader
-        subtitle="Publicaciones"
-        title="Publicaciones científicas"
-        description="Artículos de investigación publicados en revistas internacionales indexadas."
+        subtitle={t("publicaciones.subtitle")}
+        title={t("publicaciones.title")}
+        description={t("publicaciones.description")}
       />
 
-      <section className="relative -mt-20 pb-28">
+      <section className="relative -mt-20 pb-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-5">
             {publications.map((pub, i) => (
               <AnimatedSection key={`pub-${i}`} delay={i * 100} animation={i % 2 === 0 ? "fade-left" : "fade-right"}>
                 <div className="card-premium group relative overflow-hidden rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
-                  {/* Left accent bar */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 h-0 w-1 rounded-r-full bg-gradient-to-b from-secondary to-cyan-400 transition-all duration-300 group-hover:h-1/2" />
 
                   <div className="flex items-start justify-between gap-4 pl-3">
                     <div className="flex-1">
                       <h3 className="mb-2 text-lg font-bold text-primary group-hover:text-secondary transition-colors duration-300">
-                        {pub.title}
+                        {lang === "en" && pub.titleEn ? pub.titleEn : pub.title}
                       </h3>
                       <p className="mb-1 text-sm text-muted">{pub.authors}</p>
-                      <p className="text-sm font-medium text-secondary/80">{pub.journal}</p>
+                      <p className="text-sm font-medium text-secondary/80">{lang === "en" && pub.journalEn ? pub.journalEn : pub.journal}</p>
                     </div>
                     <span className="shrink-0 rounded-full bg-gradient-to-r from-secondary/10 to-cyan-500/10 px-3 py-1 text-xs font-bold text-secondary">
                       {pub.year}
@@ -45,7 +49,7 @@ export default function PublicacionesPage() {
                         rel="noopener noreferrer"
                         className="ml-auto inline-flex items-center gap-1 rounded-full bg-primary/5 px-3 py-1 text-xs font-medium text-primary transition-all hover:bg-secondary/10 hover:text-secondary"
                       >
-                        Ver en ResearchGate
+                        {t("publicaciones.verResearchGate")}
                         <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
                       </a>
                     ) : pub.doi ? (
@@ -55,10 +59,45 @@ export default function PublicacionesPage() {
                         rel="noopener noreferrer"
                         className="ml-auto inline-flex items-center gap-1 rounded-full bg-primary/5 px-3 py-1 text-xs font-medium text-primary transition-all hover:bg-secondary/10 hover:text-secondary"
                       >
-                        Ver artículo
+                        {t("publicaciones.verArticulo")}
                         <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
                       </a>
                     ) : null}
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative pb-28">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            subtitle={t("publicaciones.proyectos.subtitle")}
+            title={t("publicaciones.proyectos.title")}
+            description={t("publicaciones.proyectos.description")}
+          />
+
+          <div className="space-y-5">
+            {researchProjects.map((project, i) => (
+              <AnimatedSection key={`rp-${i}`} delay={i * 100} animation={i % 2 === 0 ? "fade-left" : "fade-right"}>
+                <div className="group relative overflow-hidden rounded-xl border border-accent/20 bg-white p-6 shadow-sm">
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 h-0 w-1 rounded-r-full bg-gradient-to-b from-accent to-amber-400 transition-all duration-300 group-hover:h-1/2" />
+
+                  <div className="flex items-start justify-between gap-4 pl-3">
+                    <div className="flex-1">
+                      <h3 className="mb-2 text-lg font-bold text-primary group-hover:text-accent transition-colors duration-300">
+                        {lang === "en" && project.titleEn ? project.titleEn : project.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-muted">{lang === "en" && project.summaryEn ? project.summaryEn : project.summary}</p>
+                    </div>
+                    <span className="shrink-0 rounded-full bg-accent/15 px-3 py-1 text-xs font-bold text-accent">
+                      {t("publicaciones.enCurso")}
+                    </span>
+                  </div>
+                  <div className="mt-4 flex items-center gap-3 pl-3 border-t border-gray-50 pt-3">
+                    <span className="text-xs font-medium text-accent/60">{project.author}</span>
                   </div>
                 </div>
               </AnimatedSection>

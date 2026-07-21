@@ -1,7 +1,12 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
 import { navLinks, siteConfig } from "@/constants"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function Footer() {
+  const { t } = useLanguage()
   return (
     <footer className="relative bg-gradient-to-b from-primary-dark to-[#060e1a] text-gray-300 overflow-hidden">
       {/* Decorative top border */}
@@ -13,16 +18,34 @@ export default function Footer() {
         <div className="absolute bottom-1/4 right-1/4 h-48 w-48 rounded-full bg-accent/5 blur-3xl" />
       </div>
 
+      {/* ULA logo as decorative background */}
+      <div className="pointer-events-none absolute left-6 top-1/2 -translate-y-1/2 select-none opacity-[0.15]">
+        <Image
+          src="/images/logo_ula.png"
+          alt=""
+          width={300}
+          height={452}
+          className="h-auto w-[140px] sm:w-[180px] lg:w-[220px]"
+          aria-hidden
+          loading="eager"
+        />
+      </div>
+
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-secondary to-cyan-600 text-sm font-bold text-white">
-                LF
+              <div className="flex h-10 items-center justify-center rounded-xl bg-white px-2 shadow-sm">
+                <Image
+                  src="/images/logo_laboratorio.png"
+                  alt="Logo del Laboratorio"
+                  width={66}
+                  height={40}
+                />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">{siteConfig.shortName}</h3>
+                <h3 className="text-lg font-bold text-white">{siteConfig.name}</h3>
                 <p className="text-[10px] font-medium uppercase tracking-widest text-gray-400">{siteConfig.parentInstitution}</p>
               </div>
             </div>
@@ -32,7 +55,7 @@ export default function Footer() {
           {/* Links */}
           <div>
             <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">
-              Enlaces
+              {t("footer.enlaces")}
             </h4>
             <ul className="space-y-2.5">
               {navLinks.map((link) => (
@@ -42,7 +65,7 @@ export default function Footer() {
                     className="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-secondary"
                   >
                     <span className="h-1 w-1 rounded-full bg-gray-600 transition-all group-hover:w-2 group-hover:bg-secondary" />
-                    {link.label}
+                    {t(`nav.${link.href === "/" ? "inicio" : link.href.replace("/", "")}`)}
                   </Link>
                 </li>
               ))}
@@ -51,7 +74,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">Contacto</h4>
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">{t("footer.contacto")}</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5">
@@ -76,7 +99,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">Síguenos</h4>
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">{t("footer.siguenos")}</h4>
             <div className="flex gap-3">
               <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="social-facebook flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-400 transition-all duration-300 hover:scale-110" aria-label="Facebook">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
@@ -89,11 +112,11 @@ export default function Footer() {
               </a>
             </div>
             <div className="mt-6">
-              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500">Newsletter</p>
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500">{t("footer.newsletter")}</p>
               <div className="flex gap-2">
                 <input
                   type="email"
-                  placeholder="tu@correo.com"
+                  placeholder={t("footer.newsletterPlaceholder")}
                   className="flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder-gray-500 outline-none transition-all focus:border-secondary/50 focus:bg-white/10"
                 />
                 <button className="rounded-lg bg-gradient-to-r from-secondary to-cyan-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-secondary/20">
@@ -106,7 +129,7 @@ export default function Footer() {
 
         <div className="mt-14 border-t border-white/10 pt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} {siteConfig.name}. {t("footer.copyright")}
           </p>
           <p className="text-xs text-gray-600">
             Diseñado con <span className="text-secondary">♦</span> para la ciencia

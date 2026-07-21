@@ -13,8 +13,10 @@ export interface TeamMember {
 
 export interface Publication {
   title: string
+  titleEn?: string
   authors: string
   journal: string
+  journalEn?: string
   year: number
   doi: string
   link?: string
@@ -29,4 +31,13 @@ export interface Service {
 export interface Stat {
   value: string
   label: string
+}
+
+export interface ResearchProject {
+  title: string
+  titleEn?: string
+  summary: string
+  summaryEn?: string
+  author: string
+  status: "en-curso" | "completado" | "pausado"
 }

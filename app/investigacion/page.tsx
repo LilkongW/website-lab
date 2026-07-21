@@ -1,7 +1,10 @@
+"use client"
+
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import Card from "@/components/ui/Card"
 import PageHeader from "@/components/ui/PageHeader"
 import { researchAreas } from "@/constants"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const areaIcons = ["⚛️", "💎", "🖥️", "☀️"]
 const areaGradients = [
@@ -12,12 +15,13 @@ const areaGradients = [
 ]
 
 export default function InvestigacionPage() {
+  const { t } = useLanguage()
   return (
     <>
       <PageHeader
-        subtitle="Investigación"
-        title="Áreas de investigación"
-        description="Nuestro trabajo abarca múltiples disciplinas dentro de la física aplicada, con un enfoque en soluciones tecnológicas innovadoras."
+        subtitle={t("investigacion.subtitle")}
+        title={t("investigacion.title")}
+        description={t("investigacion.description")}
       />
 
       <section className="relative -mt-20 pb-28">

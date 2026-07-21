@@ -1,8 +1,11 @@
+"use client"
+
 import Image from "next/image"
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import Card from "@/components/ui/Card"
 import PageHeader from "@/components/ui/PageHeader"
 import { teamMembers } from "@/constants"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const memberGradients = [
   "from-cyan-500 to-blue-600",
@@ -18,12 +21,13 @@ const memberGradients = [
 ]
 
 export default function EquipoPage() {
+  const { t } = useLanguage()
   return (
     <>
       <PageHeader
-        subtitle="Equipo"
-        title="Nuestro equipo"
-        description="Conoce a los investigadores y colaboradores que hacen posible nuestro trabajo."
+        subtitle={t("equipo.subtitle")}
+        title={t("equipo.title")}
+        description={t("equipo.description")}
       />
 
       <section className="relative -mt-20 pb-28">
@@ -56,7 +60,7 @@ export default function EquipoPage() {
                     className="group/link inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary transition-all hover:bg-secondary/10 hover:text-secondary"
                   >
                     <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
-                    Contactar
+                    {t("equipo.contactar")}
                   </a>
                 </Card>
               </AnimatedSection>

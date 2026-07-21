@@ -2,13 +2,16 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { navLinks, siteConfig } from "@/constants"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const { lang, setLang, t } = useLanguage()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -26,12 +29,17 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center gap-3">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-light text-sm font-bold text-white transition-transform duration-300 group-hover:scale-105">
-            LF
-            <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-br from-secondary/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+          <div className="flex h-10 items-center justify-center rounded-xl bg-white px-2 shadow-sm transition-transform duration-300 group-hover:scale-105">
+            <Image
+              src="/images/logo_laboratorio.png"
+              alt="Logo del Laboratorio"
+              width={66}
+              height={40}
+              priority
+            />
           </div>
           <div className="hidden sm:block">
-            <span className="block text-lg font-bold text-primary leading-tight">{siteConfig.shortName}</span>
+            <span className="block text-lg font-bold text-primary leading-tight">{siteConfig.name}</span>
             <span className="block text-[10px] font-medium uppercase tracking-widest text-muted">{siteConfig.parentInstitution}</span>
           </div>
         </Link>
@@ -47,8 +55,7 @@ export default function Header() {
                   : "text-muted hover:text-primary"
               }`}
             >
-              {link.label}
-              {/* Active indicator */}
+              {t(`nav.${link.href === "/" ? "inicio" : link.href.replace("/", "")}`)}
               <span
                 className={`absolute bottom-0.5 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-gradient-to-r from-secondary to-secondary-light transition-all duration-300 ${
                   pathname === link.href ? "w-4" : "w-0"
@@ -57,6 +64,17 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+
+        {/* Language toggle */}
+        <button
+          onClick={() => setLang(lang === "es" ? "en" : "es")}
+          className="hidden md:flex items-center gap-1 rounded-lg border border-gray-200 px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-muted transition-all hover:border-secondary/30 hover:text-secondary"
+          aria-label="Cambiar idioma"
+        >
+          <span className={`${lang === "es" ? "text-secondary" : "text-muted/50"}`}>ES</span>
+          <span className="text-muted/30">/</span>
+          <span className={`${lang === "en" ? "text-secondary" : "text-muted/50"}`}>EN</span>
+        </button>
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -90,9 +108,17 @@ export default function Header() {
               {pathname === link.href && (
                 <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
               )}
-              {link.label}
+              {t(`nav.${link.href === "/" ? "inicio" : link.href.replace("/", "")}`)}
             </Link>
           ))}
+          <button
+            onClick={() => setLang(lang === "es" ? "en" : "es")}
+            className="mt-2 flex w-full items-center justify-center gap-1 rounded-lg border border-gray-200 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted transition-all hover:border-secondary/30 hover:text-secondary"
+          >
+            <span className={`${lang === "es" ? "text-secondary" : "text-muted/50"}`}>ES</span>
+            <span className="text-muted/30">/</span>
+            <span className={`${lang === "en" ? "text-secondary" : "text-muted/50"}`}>EN</span>
+          </button>
         </nav>
       </div>
     </header>

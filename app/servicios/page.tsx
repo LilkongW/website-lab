@@ -1,7 +1,10 @@
+"use client"
+
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import Card from "@/components/ui/Card"
 import PageHeader from "@/components/ui/PageHeader"
 import { services } from "@/constants"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const serviceGradients = [
   "from-cyan-500 to-blue-600",
@@ -13,12 +16,13 @@ const serviceGradients = [
 ]
 
 export default function ServiciosPage() {
+  const { t } = useLanguage()
   return (
     <>
       <PageHeader
-        subtitle="Servicios"
-        title="Nuestros servicios"
-        description="Ofrecemos servicios especializados de investigación, desarrollo tecnológico y consultoría científica."
+        subtitle={t("servicios.subtitle")}
+        title={t("servicios.title")}
+        description={t("servicios.description")}
       />
 
       <section className="relative -mt-20 pb-28">

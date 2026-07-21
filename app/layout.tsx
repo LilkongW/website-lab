@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
 import ScrollToTop from "@/components/ui/ScrollToTop"
 import ScrollProgress from "@/components/ui/ScrollProgress"
+import { LanguageProvider } from "@/contexts/LanguageContext"
 import "./globals.css"
 
 const inter = Inter({
@@ -30,11 +31,13 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${geistMono.variable}`}>
       <body className="flex min-h-full flex-col antialiased">
-        <ScrollProgress />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <ScrollToTop />
+        <LanguageProvider>
+          <ScrollProgress />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <ScrollToTop />
+        </LanguageProvider>
       </body>
     </html>
   )

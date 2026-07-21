@@ -1,0 +1,167 @@
+export const translations = {
+  es: {
+    "nav.inicio": "Inicio",
+    "nav.investigacion": "Investigación",
+    "nav.servicios": "Servicios",
+    "nav.equipo": "Equipo",
+    "nav.publicaciones": "Publicaciones",
+    "nav.galeria": "Galería",
+    "nav.contacto": "Contacto",
+
+    "hero.badge": "ULA · Centro de Investigación",
+    "hero.title": "Innovación científica para un futuro sostenible",
+    "hero.description": "Centro de investigación dedicado al análisis de datos y al desarrollo de soluciones tecnológicas con impacto social. Adscrito a la Universidad de Los Andes, Mérida, Venezuela.",
+    "hero.cta1": "Nuestra investigación",
+    "hero.cta2": "Contáctanos",
+
+    "about.subtitle": "Sobre nosotros",
+    "about.title": "Comprometidos con la excelencia científica",
+    "about.description": "Somos un centro de investigación dedicado al análisis de datos y al desarrollo de soluciones tecnológicas con impacto social. Aplicamos técnicas de procesamiento de imágenes, machine learning e instrumentación para resolver problemas reales.",
+    "about.mission": "Misión",
+    "about.missionText": "Generar conocimiento científico de vanguardia en física aplicada, formando recursos humanos de alto nivel y transfiriendo tecnología al sector productivo.",
+    "about.vision": "Visión",
+    "about.visionText": "Ser un laboratorio de referencia nacional e internacional en investigación aplicada, reconocido por la calidad y el impacto de sus contribuciones científicas.",
+    "about.values": "Valores",
+    "about.valuesText": "Integridad científica, innovación, colaboración interdisciplinaria, compromiso social y responsabilidad ambiental en cada proyecto que emprendemos.",
+
+    "stats.years": "Años de investigación",
+    "stats.publications": "Publicaciones científicas",
+    "stats.projects": "Proyectos realizados",
+    "stats.researchers": "Investigadores y colaboradores",
+
+    "services.subtitle": "Servicios",
+    "services.title": "Áreas de investigación y servicio",
+    "services.description": "Ofrecemos una amplia gama de servicios de investigación y desarrollo tecnológico.",
+    "services.cta": "Ver todos los servicios",
+
+    "servicios.subtitle": "Servicios",
+    "servicios.title": "Nuestros servicios",
+    "servicios.description": "Ofrecemos servicios especializados de investigación, desarrollo tecnológico y consultoría científica.",
+
+    "cta.badge": "Colaboración",
+    "cta.title": "¿Interesado en colaborar con nosotros?",
+    "cta.description": "Estamos abiertos a colaboraciones académicas, proyectos de investigación conjuntos y servicios tecnológicos para la industria.",
+    "cta.cta1": "Contáctanos",
+    "cta.cta2": "Conoce al equipo",
+
+    "investigacion.subtitle": "Investigación",
+    "investigacion.title": "Áreas de investigación",
+    "investigacion.description": "Nuestro trabajo abarca múltiples disciplinas dentro de la física aplicada, con un enfoque en soluciones tecnológicas innovadoras.",
+
+    "publicaciones.subtitle": "Publicaciones",
+    "publicaciones.title": "Publicaciones científicas",
+    "publicaciones.description": "Artículos de investigación publicados en revistas internacionales indexadas.",
+    "publicaciones.enCurso": "En curso",
+    "publicaciones.proyectos.subtitle": "Investigación activa",
+    "publicaciones.proyectos.title": "Proyectos en curso",
+    "publicaciones.proyectos.description": "Líneas de investigación actualmente en desarrollo por el equipo del laboratorio.",
+    "publicaciones.verResearchGate": "Ver en ResearchGate",
+    "publicaciones.verArticulo": "Ver artículo",
+
+    "equipo.subtitle": "Equipo",
+    "equipo.title": "Nuestro equipo",
+    "equipo.description": "Conoce a los investigadores y colaboradores que hacen posible nuestro trabajo.",
+    "equipo.contactar": "Contactar",
+
+    "galeria.subtitle": "Galería",
+    "galeria.title": "Nuestra galería",
+    "galeria.description": "Imágenes de nuestras instalaciones, equipos y actividades de investigación.",
+    "galeria.cerrar": "Cerrar",
+    "galeria.anterior": "Anterior",
+    "galeria.siguiente": "Siguiente",
+
+    "footer.enlaces": "Enlaces",
+    "footer.contacto": "Contacto",
+    "footer.siguenos": "Síguenos",
+    "footer.newsletter": "Newsletter",
+    "footer.newsletterPlaceholder": "tu@correo.com",
+    "footer.copyright": "Todos los derechos reservados.",
+    "footer.tagline": "Diseñado con ♦ para la ciencia",
+  },
+  en: {
+    "nav.inicio": "Home",
+    "nav.investigacion": "Research",
+    "nav.servicios": "Services",
+    "nav.equipo": "Team",
+    "nav.publicaciones": "Publications",
+    "nav.galeria": "Gallery",
+    "nav.contacto": "Contact",
+
+    "hero.badge": "ULA · Research Center",
+    "hero.title": "Scientific innovation for a sustainable future",
+    "hero.description": "Research center dedicated to data analysis and the development of technological solutions with social impact. Affiliated with Universidad de Los Andes, Mérida, Venezuela.",
+    "hero.cta1": "Our research",
+    "hero.cta2": "Contact us",
+
+    "about.subtitle": "About us",
+    "about.title": "Committed to scientific excellence",
+    "about.description": "We are a research center dedicated to data analysis and the development of technological solutions with social impact. We apply image processing, machine learning, and instrumentation techniques to solve real problems.",
+    "about.mission": "Mission",
+    "about.missionText": "Generate cutting-edge scientific knowledge in applied physics, training high-level human resources and transferring technology to the productive sector.",
+    "about.vision": "Vision",
+    "about.visionText": "To be a national and international reference laboratory in applied research, recognized for the quality and impact of its scientific contributions.",
+    "about.values": "Values",
+    "about.valuesText": "Scientific integrity, innovation, interdisciplinary collaboration, social commitment, and environmental responsibility in every project we undertake.",
+
+    "stats.years": "Years of research",
+    "stats.publications": "Scientific publications",
+    "stats.projects": "Completed projects",
+    "stats.researchers": "Researchers & collaborators",
+
+    "services.subtitle": "Services",
+    "services.title": "Research and service areas",
+    "services.description": "We offer a wide range of research and technological development services.",
+    "services.cta": "View all services",
+
+    "servicios.subtitle": "Services",
+    "servicios.title": "Our services",
+    "servicios.description": "We offer specialized research, technological development, and scientific consulting services.",
+
+    "cta.badge": "Collaboration",
+    "cta.title": "Interested in collaborating with us?",
+    "cta.description": "We are open to academic collaborations, joint research projects, and technological services for industry.",
+    "cta.cta1": "Contact us",
+    "cta.cta2": "Meet the team",
+
+    "investigacion.subtitle": "Research",
+    "investigacion.title": "Research areas",
+    "investigacion.description": "Our work spans multiple disciplines within applied physics, focusing on innovative technological solutions.",
+
+    "publicaciones.subtitle": "Publications",
+    "publicaciones.title": "Scientific publications",
+    "publicaciones.description": "Research articles published in indexed international journals.",
+    "publicaciones.enCurso": "In progress",
+    "publicaciones.proyectos.subtitle": "Active research",
+    "publicaciones.proyectos.title": "Ongoing projects",
+    "publicaciones.proyectos.description": "Research lines currently being developed by the laboratory team.",
+    "publicaciones.verResearchGate": "View on ResearchGate",
+    "publicaciones.verArticulo": "View article",
+
+    "equipo.subtitle": "Team",
+    "equipo.title": "Our team",
+    "equipo.description": "Meet the researchers and collaborators who make our work possible.",
+    "equipo.contactar": "Contact",
+
+    "galeria.subtitle": "Gallery",
+    "galeria.title": "Our gallery",
+    "galeria.description": "Images of our facilities, equipment, and research activities.",
+    "galeria.cerrar": "Close",
+    "galeria.anterior": "Previous",
+    "galeria.siguiente": "Next",
+
+    "footer.enlaces": "Links",
+    "footer.contacto": "Contact",
+    "footer.siguenos": "Follow us",
+    "footer.newsletter": "Newsletter",
+    "footer.newsletterPlaceholder": "your@email.com",
+    "footer.copyright": "All rights reserved.",
+    "footer.tagline": "Designed with ♦ for science",
+  },
+} as const
+
+export type Lang = "es" | "en"
+
+export function t(lang: Lang, key: string): string {
+  const map = translations[lang] as Record<string, string>
+  return map[key] ?? key
+}
