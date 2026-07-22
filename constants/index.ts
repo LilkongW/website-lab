@@ -99,9 +99,10 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Victor Toro",
     role: "Investigador",
-    photo: "",
+    photo: "/images/team/Victor_Toro.JPG",
     bio: "Investigador en sistemas de seguimiento ocular basados en técnicas de procesamiento de imágenes. Tesis: \"Estudio de un Sistema de Seguimiento Ocular basado en Técnicas de Procesamiento de Imágenes — Una Propuesta Experimental\".",
-    email: "victortoro@labfisica.ula.ve",
+    email: "victoromand@gmail.com",
+    phone: "+58 424 7805075",
   },
   {
     name: "Juan Carlos Villegas",
@@ -118,11 +119,11 @@ export const teamMembers: TeamMember[] = [
     email: "scarrillo@labfisica.ula.ve",
   },
   {
-    name: "Carlos",
+    name: "Carlos Mora",
     role: "Investigador",
-    photo: "",
+    photo: "/images/team/Carlos_Mora.JPG",
     bio: "Descripción pendiente",
-    email: "carlos@labfisica.ula.ve",
+    email: "cmora@labfisica.ula.ve",
   },
   {
     name: "Manuel Arteaga",

@@ -62,6 +62,10 @@ export const translations = {
     "equipo.title": "Nuestro equipo",
     "equipo.description": "Conoce a los investigadores y colaboradores que hacen posible nuestro trabajo.",
     "equipo.contactar": "Contactar",
+    "equipo.email": "Correo electrónico",
+    "equipo.telefono": "Teléfono",
+    "equipo.copiar": "Copiar",
+    "equipo.copiado": "Copiado",
 
     "galeria.subtitle": "Galería",
     "galeria.title": "Nuestra galería",
@@ -141,6 +145,10 @@ export const translations = {
     "equipo.title": "Our team",
     "equipo.description": "Meet the researchers and collaborators who make our work possible.",
     "equipo.contactar": "Contact",
+    "equipo.email": "Email",
+    "equipo.telefono": "Phone",
+    "equipo.copiar": "Copy",
+    "equipo.copiado": "Copied",
 
     "galeria.subtitle": "Gallery",
     "galeria.title": "Our gallery",

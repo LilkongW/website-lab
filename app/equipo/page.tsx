@@ -1,11 +1,14 @@
 "use client"
 
+import { useState } from "react"
 import AppImage from "@/components/ui/AppImage"
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import Card from "@/components/ui/Card"
 import PageHeader from "@/components/ui/PageHeader"
+import TeamMemberModal from "@/components/ui/TeamMemberModal"
 import { teamMembers } from "@/constants"
 import { useLanguage } from "@/contexts/LanguageContext"
+import type { TeamMember } from "@/types"
 
 const memberGradients = [
   "from-cyan-500 to-blue-600",
@@ -22,6 +25,8 @@ const memberGradients = [
 
 export default function EquipoPage() {
   const { t } = useLanguage()
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
+
   return (
     <>
       <PageHeader
@@ -35,39 +40,43 @@ export default function EquipoPage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {teamMembers.map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 120}>
-                <Card className="group h-full text-center">
-                  {/* Avatar with gradient ring */}
-                  <div className="relative mx-auto mb-5 h-24 w-24">
-                    <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${memberGradients[i]} opacity-20 transition-opacity duration-300 group-hover:opacity-40`} />
-                    <div className={`absolute inset-1 rounded-full bg-gradient-to-br ${memberGradients[i]} transition-transform duration-500 group-hover:scale-105`} />
-                    <div className="absolute inset-2 overflow-hidden rounded-full bg-white">
-                      {member.photo ? (
-                        <AppImage src={member.photo} alt={member.name} width={80} height={80} className="h-full w-full object-cover" />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center">
-                          <span className="text-2xl font-bold text-primary/60">
-                            {member.name.split(" ").slice(-1)[0]?.[0]}{member.name.split(" ").slice(-2, -1)[0]?.[0]}
-                          </span>
-                        </div>
-                      )}
+                <button
+                  onClick={() => setSelectedMember(member)}
+                  className="group h-full text-left w-full"
+                >
+                  <Card className="group h-full text-center transition-all hover:shadow-md">
+                    {/* Avatar with gradient ring */}
+                    <div className="relative mx-auto mb-5 h-24 w-24">
+                      <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${memberGradients[i]} opacity-20 transition-opacity duration-300 group-hover:opacity-40`} />
+                      <div className={`absolute inset-1 rounded-full bg-gradient-to-br ${memberGradients[i]} transition-transform duration-500 group-hover:scale-105`} />
+                      <div className="absolute inset-2 overflow-hidden rounded-full bg-white">
+                        {member.photo ? (
+                          <AppImage src={member.photo} alt={member.name} width={80} height={80} className="h-full w-full object-cover" />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center">
+                            <span className="text-2xl font-bold text-primary/60">
+                              {member.name.split(" ").slice(-1)[0]?.[0]}{member.name.split(" ").slice(-2, -1)[0]?.[0]}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="text-lg font-bold text-primary">{member.name}</h3>
-                  <p className="mb-3 text-sm font-medium gradient-text">{member.role}</p>
-                  <p className="mb-4 text-sm leading-relaxed text-muted">{member.bio}</p>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="group/link inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary transition-all hover:bg-secondary/10 hover:text-secondary"
-                  >
-                    <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
-                    {t("equipo.contactar")}
-                  </a>
-                </Card>
+                    <h3 className="text-lg font-bold text-primary">{member.name}</h3>
+                    <p className="mb-3 text-sm font-medium gradient-text">{member.role}</p>
+                    <p className="mb-4 text-sm leading-relaxed text-muted">{member.bio}</p>
+                    <span className="group/link inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary transition-all hover:bg-secondary/10 hover:text-secondary">
+                      <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+                      {t("equipo.contactar")}
+                    </span>
+                  </Card>
+                </button>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
+
+      <TeamMemberModal member={selectedMember} onClose={() => setSelectedMember(null)} />
     </>
   )
 }

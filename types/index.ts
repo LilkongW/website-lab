@@ -9,6 +9,7 @@ export interface TeamMember {
   photo: string
   bio: string
   email: string
+  phone?: string
 }
 
 export interface Publication {
