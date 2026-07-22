@@ -106,7 +106,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Juan Carlos Villegas",
     role: "Director",
-    photo: "",
+    photo: "/images/team/Juan_Villegas.png",
     bio: "Investigador en radiación cósmica y precursores sísmicos. Iniciativa merideña en sistemas de alerta temprana en terremotos.",
     email: "jvillegas@labfisica.ula.ve",
   },
