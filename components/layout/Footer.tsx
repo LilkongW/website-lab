@@ -131,9 +131,7 @@ export default function Footer() {
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} {siteConfig.name}. {t("footer.copyright")}
           </p>
-          <p className="text-xs text-gray-600">
-            Diseñado con <span className="text-secondary">♦</span> para la ciencia
-          </p>
+
         </div>
       </div>
     </footer>
