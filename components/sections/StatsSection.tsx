@@ -2,15 +2,16 @@
 
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import CountUp from "@/components/ui/CountUp"
+import Icon from "@/components/ui/Icon"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 const statKeys = ["stats.years", "stats.publications", "stats.projects", "stats.researchers"] as const
 
 const stats = [
-  { value: 10, prefix: "+", icon: "📅" },
-  { value: 20, prefix: "+", icon: "📄" },
-  { value: 30, prefix: "+", icon: "🔬" },
-  { value: 10, prefix: "+", icon: "👥" },
+  { value: 10, prefix: "+", icon: "CalendarMonth" },
+  { value: 20, prefix: "+", icon: "Article" },
+  { value: 30, prefix: "+", icon: "Biotech" },
+  { value: 10, prefix: "+", icon: "Group" },
 ]
 
 export default function StatsSection() {
@@ -29,7 +30,7 @@ export default function StatsSection() {
           {stats.map((stat, i) => (
             <AnimatedSection key={statKeys[i]} delay={i * 150} animation="scale-in">
               <div className="stat-divider text-center px-4">
-                <div className="mb-3 text-2xl">{stat.icon}</div>
+                <div className="mb-3 text-2xl text-white"><Icon name={stat.icon} fontSize="inherit" /></div>
                 <p className="text-4xl font-bold text-white sm:text-5xl">
                   <CountUp end={stat.value} prefix={stat.prefix} className="gradient-text" />
                 </p>

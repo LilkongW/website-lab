@@ -38,32 +38,32 @@ export const services: Service[] = [
   {
     title: "Análisis de Datos",
     description: "Procesamiento y análisis estadístico de datos experimentales, incluyendo limpieza, modelado y visualización para la extracción de conocimiento.",
-    icon: "📊",
+    icon: "BarChart",
   },
   {
     title: "Visión Computacional",
     description: "Desarrollo de sistemas basados en procesamiento de imágenes y video para aplicaciones de seguimiento ocular, detección de objetos y análisis de movimiento.",
-    icon: "👁️",
+    icon: "Visibility",
   },
   {
     title: "Machine Learning",
     description: "Implementación de modelos de aprendizaje automático para clasificación, regresión y reconocimiento de patrones en datos científicos.",
-    icon: "🤖",
+    icon: "SmartToy",
   },
   {
     title: "Procesamiento de Señales",
     description: "Análisis y filtrado de señales fisiológicas, biomecánicas y ambientales mediante técnicas de procesamiento digital.",
-    icon: "📈",
+    icon: "Timeline",
   },
   {
     title: "Desarrollo de Software Científico",
     description: "Creación de herramientas y aplicaciones para adquisición, visualización y análisis de datos experimentales.",
-    icon: "💻",
+    icon: "Code",
   },
   {
     title: "Consultoría Tecnológica",
     description: "Asesoría en proyectos de investigación aplicada y desarrollo de soluciones tecnológicas con impacto social.",
-    icon: "🔧",
+    icon: "Build",
   },
 ]
 
@@ -128,7 +128,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Manuel Arteaga",
     role: "Investigador",
-    photo: "",
+    photo: "/images/team/Manuel_Arteaga.JPG",
     bio: "Descripción pendiente",
     email: "marteaga@labfisica.ula.ve",
   },

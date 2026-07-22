@@ -2,11 +2,12 @@
 
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import Card from "@/components/ui/Card"
+import Icon from "@/components/ui/Icon"
 import PageHeader from "@/components/ui/PageHeader"
 import { researchAreas } from "@/constants"
 import { useLanguage } from "@/contexts/LanguageContext"
 
-const areaIcons = ["⚛️", "💎", "🖥️", "☀️"]
+const areaIcons = ["ImageSearch", "Analytics", "Psychology", "WbSunny"]
 const areaGradients = [
   "from-cyan-500 to-blue-600",
   "from-violet-500 to-purple-600",
@@ -31,8 +32,8 @@ export default function InvestigacionPage() {
               <AnimatedSection key={area.title} delay={i * 150} animation={i % 2 === 0 ? "fade-left" : "fade-right"}>
                 <Card className="group h-full">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${areaGradients[i]} text-xl shadow-lg`}>
-                      {areaIcons[i]}
+                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${areaGradients[i]} text-xl text-white shadow-lg`}>
+                      <Icon name={areaIcons[i]} fontSize="inherit" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-primary group-hover:text-secondary transition-colors duration-300">{area.title}</h3>

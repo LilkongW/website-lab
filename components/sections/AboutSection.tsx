@@ -1,24 +1,25 @@
 "use client"
 
 import AnimatedSection from "@/components/ui/AnimatedSection"
+import Icon from "@/components/ui/Icon"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 const items = [
   {
-    icon: "🎯",
+    icon: "TrackChanges",
     titleKey: "about.mission",
     textKey: "about.missionText",
     gradient: "from-secondary to-cyan-600",
   },
   {
-    icon: "👁️",
+    icon: "Visibility",
     titleKey: "about.vision",
     textKey: "about.visionText",
     gradient: "from-cyan-600 to-blue-600",
   },
   {
-    icon: "💡",
+    icon: "Lightbulb",
     titleKey: "about.values",
     textKey: "about.valuesText",
     gradient: "from-accent to-orange-500",
@@ -43,8 +44,8 @@ export default function AboutSection() {
               <div className="card-premium group relative overflow-hidden rounded-xl bg-white p-8 pl-10 text-center shadow-sm">
                 <div className={`absolute left-0 top-1/2 -translate-y-1/2 h-1/2 w-1 rounded-r-full bg-gradient-to-b ${item.gradient} transition-all duration-300 group-hover:h-3/4`} />
 
-                <div className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${item.gradient} text-2xl shadow-lg`}>
-                  <span className="drop-shadow-sm">{item.icon}</span>
+                <div className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${item.gradient} text-2xl text-white shadow-lg`}>
+                  <Icon name={item.icon} className="drop-shadow-sm" fontSize="inherit" />
                 </div>
                 <h3 className="mb-3 text-lg font-bold text-primary">{t(item.titleKey)}</h3>
                 <p className="text-sm leading-relaxed text-muted">{t(item.textKey)}</p>

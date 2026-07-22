@@ -3,6 +3,7 @@
 import Link from "next/link"
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import Card from "@/components/ui/Card"
+import Icon from "@/components/ui/Icon"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { services } from "@/constants"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -30,8 +31,8 @@ export default function ServicesPreview() {
           {preview.map((service, i) => (
             <AnimatedSection key={service.title} delay={i * 150}>
               <Card className="group h-full">
-                <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${iconGradients[i]} text-2xl shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                  <span className="drop-shadow-sm">{service.icon}</span>
+                <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${iconGradients[i]} text-2xl text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                  <Icon name={service.icon} className="drop-shadow-sm" fontSize="inherit" />
                 </div>
                 <h3 className="mb-3 text-lg font-bold text-primary group-hover:text-secondary transition-colors duration-300">{service.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{service.description}</p>

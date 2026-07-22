@@ -2,6 +2,7 @@
 
 import AnimatedSection from "@/components/ui/AnimatedSection"
 import Card from "@/components/ui/Card"
+import Icon from "@/components/ui/Icon"
 import PageHeader from "@/components/ui/PageHeader"
 import { services } from "@/constants"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -31,8 +32,8 @@ export default function ServiciosPage() {
             {services.map((service, i) => (
               <AnimatedSection key={service.title} delay={i * 100}>
                 <Card className="group h-full text-center">
-                  <div className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${serviceGradients[i]} text-2xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    <span className="drop-shadow-sm">{service.icon}</span>
+                  <div className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${serviceGradients[i]} text-2xl text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                    <Icon name={service.icon} className="drop-shadow-sm" fontSize="inherit" />
                   </div>
                   <h3 className="mb-3 text-lg font-bold text-primary group-hover:text-secondary transition-colors duration-300">{service.title}</h3>
                   <p className="text-sm leading-relaxed text-muted">{service.description}</p>
